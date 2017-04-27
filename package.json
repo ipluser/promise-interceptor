@@ -1,6 +1,6 @@
 {
   "name": "promise-interceptor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An interceptor tool for Promise.",
   "main": "index.js",
   "scripts": {
