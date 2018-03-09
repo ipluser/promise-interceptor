@@ -2,11 +2,11 @@ var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
-    filename: 'promise-interceptor.min.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'promise-interceptor',
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'lib'),
+    library: 'PromiseInterceptor',
     libraryTarget: 'umd'
   },
   module: {

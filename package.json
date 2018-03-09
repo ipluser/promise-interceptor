@@ -1,20 +1,26 @@
 {
   "name": "promise-interceptor",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "An interceptor tool for Promise.",
-  "main": "index.js",
+  "keywords": [
+    "promise",
+    "interceptor",
+    "promise-interceptor",
+    "PromiseInterceptor"
+  ],
   "scripts": {
     "build": "webpack"
   },
+  "main": "lib/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ipluser/promise-interceptor.git"
   },
-  "keywords": [
-    "promise",
-    "interceptor",
-    "promise-interceptor"
-  ],
   "author": "ipluser",
   "license": "MIT",
   "bugs": {
