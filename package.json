@@ -1,6 +1,6 @@
 {
   "name": "promise-interceptor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An interceptor tool for Promise.",
   "keywords": [
     "promise",
@@ -9,13 +9,15 @@
     "PromiseInterceptor"
   ],
   "scripts": {
-    "build": "webpack"
+    "test": "jest",
+    "build": "webpack --mode production"
   },
   "main": "lib/index.js",
   "files": [
+    "lib",
     "LICENSE",
-    "README.md",
-    "lib"
+    "package.json",
+    "README.md"
   ],
   "repository": {
     "type": "git",
@@ -28,9 +30,17 @@
   },
   "homepage": "https://github.com/ipluser/promise-interceptor#readme",
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
-    "webpack": "^2.3.2"
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

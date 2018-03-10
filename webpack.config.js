@@ -1,11 +1,11 @@
-var webpack = require('webpack')
-var path = require('path')
+const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'index.js',
     path: path.resolve(__dirname, 'lib'),
+    filename: 'index.js',
     library: 'PromiseInterceptor',
     libraryTarget: 'umd'
   },
@@ -13,13 +13,12 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      options: {
-        presets: ['es2015'],
-      },
-    }],
+      use: [{
+        loader: 'babel-loader'
+      }]
+    }]
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-  ]
+  plugins: [new webpack.LoaderOptionsPlugin({
+    minimize: true
+  })]
 }

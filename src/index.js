@@ -1,8 +1,9 @@
+import connect from './connect'
+import execute from './execute'
 import Interceptor from './interceptor'
-import { execute, connect } from './connect'
 
 export {
-  Interceptor,
-  execute,
   connect,
+  execute,
+  Interceptor
 }

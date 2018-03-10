@@ -10,22 +10,24 @@ class Interceptor {
   }
 
   use(fulfilled = identity, rejected = promiseRejectIdentity) {
-    const handlers = this.handlers
+    if (fulfilled === identity && rejected === promiseRejectIdentity) {
+      return
+    }
 
-    handlers.push(fulfilled, rejected)
+    this.handlers.push(fulfilled, rejected)
   }
 
-  remove(fn) {
+  remove(handler) {
     const handlers = this.handlers
-    const index = handlers.indexOf(fn)
+    const index = handlers.indexOf(handler)
 
     if (index !== -1) {
-      handlers[index] = null
+      handlers[index] = undefined
     }
   }
 
-  forEach(fn) {
-    if (!isFunction(fn)) {
+  forEach(callback) {
+    if (!isFunction(callback)) {
       return
     }
 
@@ -33,9 +35,9 @@ class Interceptor {
     const len = handlers.length
 
     for (let i = 0; i < len; i += 2) {
-      const [ fulfilled = identity, rejected = promiseRejectIdentity] = [ handlers[i], handlers[i + 1] ]
+      const [fulfilled = identity, rejected = promiseRejectIdentity] = [handlers[i], handlers[i + 1]]
 
-      fn.call(null, fulfilled, rejected)
+      callback.call(null, fulfilled, rejected)
     }
   }
 }
